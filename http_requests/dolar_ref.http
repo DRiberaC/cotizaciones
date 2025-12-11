@@ -55,3 +55,7 @@ X-API-KEY: secreto123
         "precio_venta": 7.65
     }
 ]
+
+### Obtener Dólares Referenciales por Mes (ej. Diciembre 2025)
+GET {{baseUrl}}/dolar-ref/obtener/2025-12
+Accept: application/json

@@ -55,3 +55,7 @@ X-API-KEY: secreto123
         "precio_venta": 6.97
     }
 ]
+
+### Obtener Dólares por Mes (ej. Diciembre 2025)
+GET {{baseUrl}}/dolar/obtener/2025-12
+Accept: application/json

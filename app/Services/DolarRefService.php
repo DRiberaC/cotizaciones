@@ -28,9 +28,21 @@ class DolarRefService
         return DolarRef::whereIn('fecha', array_column($data, 'fecha'))->get();
     }
 
+    public function getByMonth(string $yearMonth): Collection
+    {
+        [$year, $month] = explode('-', $yearMonth);
+        return DolarRef::whereYear('fecha', $year)
+                  ->whereMonth('fecha', $month)
+                  ->get();
+    }
+
     public function read($fecha): DolarRef
     {
-        return DolarRef::where('fecha', $fecha)->firstOrFail();
+        return DolarRef::where('fecha', $fecha)->first() ?? new DolarRef([
+            'fecha' => $fecha,
+            'precio_compra' => 0,
+            'precio_venta' => 0
+        ]);
     }
 
     public function update($fecha, array $data): DolarRef
