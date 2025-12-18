@@ -32,8 +32,13 @@ class DolarService
     {
         [$year, $month] = explode('-', $yearMonth);
         return Dolar::whereYear('fecha', $year)
-                  ->whereMonth('fecha', $month)
-                  ->get();
+            ->whereMonth('fecha', $month)
+            ->get();
+    }
+
+    public function getByYear(string $year): Collection
+    {
+        return Dolar::whereYear('fecha', $year)->get();
     }
 
     public function read($fecha): Dolar

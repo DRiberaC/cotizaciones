@@ -55,3 +55,8 @@ X-API-KEY: secreto123
 ### Obtener UFVs por Mes (ej. Diciembre 2025)
 GET {{baseUrl}}/ufv/obtener/2025-12
 Accept: application/json
+
+### Obtener UFVs por Año (ej. 2025)
+GET {{baseUrl}}/ufv/obtener-year/2025
+Accept: application/json
+

@@ -59,3 +59,7 @@ X-API-KEY: secreto123
 ### Obtener Dólares por Mes (ej. Diciembre 2025)
 GET {{baseUrl}}/dolar/obtener/2025-12
 Accept: application/json
+
+### Obtener Dólares por Año (ej. 2025)
+GET {{baseUrl}}/dolar/obtener-year/2025
+Accept: application/json

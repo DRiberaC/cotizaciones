@@ -36,6 +36,11 @@ class DolarRefController extends Controller implements HasMiddleware
         return response()->json($this->dolarRefService->getByMonth($yearMonth));
     }
 
+    public function getByYear($year): JsonResponse
+    {
+        return response()->json($this->dolarRefService->getByYear($year));
+    }
+
     public function store(StoreDolarRefRequest $request): JsonResponse
     {
         $data = $request->validated();

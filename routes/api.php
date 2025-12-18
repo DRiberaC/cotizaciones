@@ -8,7 +8,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('ufv/obtener/{yearMonth}', [\App\Http\Controllers\UfvController::class, 'getByMonth']);
+Route::get('ufv/obtener-year/{year}', [\App\Http\Controllers\UfvController::class, 'getByYear']);
+
 Route::get('dolar/obtener/{yearMonth}', [\App\Http\Controllers\DolarController::class, 'getByMonth']);
+
 Route::get('dolar-ref/obtener/{yearMonth}', [\App\Http\Controllers\DolarRefController::class, 'getByMonth']);
 
 Route::apiResource('ufv', \App\Http\Controllers\UfvController::class);

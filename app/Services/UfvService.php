@@ -32,8 +32,13 @@ class UfvService
     {
         [$year, $month] = explode('-', $yearMonth);
         return Ufv::whereYear('fecha', $year)
-                  ->whereMonth('fecha', $month)
-                  ->get();
+            ->whereMonth('fecha', $month)
+            ->get();
+    }
+
+    public function getByYear(string $year): Collection
+    {
+        return Ufv::whereYear('fecha', $year)->get();
     }
 
     public function read($fecha): Ufv
