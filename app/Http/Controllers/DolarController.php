@@ -31,6 +31,11 @@ class DolarController extends Controller implements HasMiddleware
         return response()->json($this->dolarService->index());
     }
 
+    public function getByDay($fecha): JsonResponse
+    {
+        return response()->json($this->dolarService->getByDay($fecha));
+    }
+
     public function getByMonth($yearMonth): JsonResponse
     {
         return response()->json($this->dolarService->getByMonth($yearMonth));
@@ -54,7 +59,7 @@ class DolarController extends Controller implements HasMiddleware
 
     public function show($fecha): JsonResponse
     {
-        return response()->json($this->dolarService->read($fecha));
+        return response()->json($this->dolarService->show($fecha));
     }
 
     public function update(UpdateDolarRequest $request, $fecha): JsonResponse

@@ -28,6 +28,11 @@ class DolarRefService
         return DolarRef::whereIn('fecha', array_column($data, 'fecha'))->get();
     }
 
+    public function getByDay(string $fecha): Collection
+    {
+        return DolarRef::where('fecha', $fecha)->get();
+    }
+
     public function getByMonth(string $yearMonth): Collection
     {
         [$year, $month] = explode('-', $yearMonth);
@@ -41,7 +46,7 @@ class DolarRefService
         return DolarRef::whereYear('fecha', $year)->get();
     }
 
-    public function read($fecha): DolarRef
+    public function show($fecha): DolarRef
     {
         return DolarRef::where('fecha', $fecha)->first() ?? new DolarRef([
             'fecha' => $fecha,

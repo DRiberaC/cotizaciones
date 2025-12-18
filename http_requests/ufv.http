@@ -60,3 +60,6 @@ Accept: application/json
 GET {{baseUrl}}/ufv/obtener-year/2025
 Accept: application/json
 
+### Obtener UFVs por día (ej. 2025-12-10)
+GET {{baseUrl}}/ufv/obtener-day/2025-12-10
+Accept: application/json

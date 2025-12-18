@@ -28,6 +28,11 @@ class UfvService
         return Ufv::whereIn('fecha', array_column($data, 'fecha'))->get();
     }
 
+    public function getByDay(string $fecha): Collection
+    {
+        return Ufv::where('fecha', $fecha)->get();
+    }
+
     public function getByMonth(string $yearMonth): Collection
     {
         [$year, $month] = explode('-', $yearMonth);
@@ -41,7 +46,7 @@ class UfvService
         return Ufv::whereYear('fecha', $year)->get();
     }
 
-    public function read($fecha): Ufv
+    public function show($fecha): Ufv
     {
         return Ufv::where('fecha', $fecha)->first() ?? new Ufv([
             'fecha' => $fecha,
