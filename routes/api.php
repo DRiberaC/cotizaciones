@@ -11,8 +11,10 @@ Route::get('ufv/obtener/{yearMonth}', [\App\Http\Controllers\UfvController::clas
 Route::get('ufv/obtener-year/{year}', [\App\Http\Controllers\UfvController::class, 'getByYear']);
 
 Route::get('dolar/obtener/{yearMonth}', [\App\Http\Controllers\DolarController::class, 'getByMonth']);
+Route::get('dolar/obtener-year/{year}', [\App\Http\Controllers\DolarController::class, 'getByYear']);
 
 Route::get('dolar-ref/obtener/{yearMonth}', [\App\Http\Controllers\DolarRefController::class, 'getByMonth']);
+Route::get('dolar-ref/obtener-year/{year}', [\App\Http\Controllers\DolarRefController::class, 'getByYear']);
 
 Route::apiResource('ufv', \App\Http\Controllers\UfvController::class);
 Route::apiResource('dolar', \App\Http\Controllers\DolarController::class);
