@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests\DolarRef\StoreDolarRefRequest;
 use App\Http\Requests\DolarRef\UpdateDolarRefRequest;
+
 use App\Services\DolarRefService;
 use Illuminate\Http\JsonResponse;
 
@@ -26,9 +29,15 @@ class DolarRefController extends Controller implements HasMiddleware
         $this->dolarRefService = $dolarRefService;
     }
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        return response()->json($this->dolarRefService->index());
+        $perPage = (int) $request->query('per_page', 30);
+
+        $perPage = max(1, min($perPage, 100));
+
+        return response()->json(
+            $this->dolarRefService->index($perPage)
+        );
     }
 
     public function getByMonth($yearMonth): JsonResponse

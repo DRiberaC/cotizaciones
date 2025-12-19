@@ -116,7 +116,7 @@
 
             <h4>UFV</h4>
             <ul>
-                <li><code>GET /api/ufv</code></li>
+                <li><code>GET /api/ufv?per_page=30</code></li>
                 <li><code>GET /api/ufv/{YYYY-MM-DD}</code></li>
                 <li><code>GET /api/ufv/obtener-month/{YYYY-MM}</code></li>
                 <li><code>GET /api/ufv/obtener-year/{YYYY}</code></li>

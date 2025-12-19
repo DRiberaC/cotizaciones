@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests\Ufv\StoreUfvRequest;
 use App\Http\Requests\Ufv\UpdateUfvRequest;
+
 use App\Services\UfvService;
 use Illuminate\Http\JsonResponse;
 
@@ -26,9 +29,15 @@ class UfvController extends Controller implements HasMiddleware
         $this->ufvService = $ufvService;
     }
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        return response()->json($this->ufvService->index());
+        $perPage = (int) $request->query('per_page', 30);
+
+        $perPage = max(1, min($perPage, 100));
+
+        return response()->json(
+            $this->ufvService->index($perPage)
+        );
     }
 
     public function getByMonth($yearMonth): JsonResponse

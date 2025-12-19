@@ -95,8 +95,39 @@ http://localhost:8000/api
 
 ### 6.1 Listar todas las UFVs
 
+Obtiene un listado paginado de UFVs, ordenado por fecha descendente.
+
 ```http
-GET /ufv
+GET /ufv?per_page=25
+```
+
+Parámetros opcionales:
+
+| Parámetro | Tipo | Descripción | Default | Min | Max |
+|---|---|---|---|---|---|
+| `per_page` | int | Cantidad de registros por página | 25 | 1 | 100 |
+
+Respuesta Paginada (LengthAwarePaginator):
+
+```json
+{
+    "current_page": 1,
+    "data": [
+        { "fecha": "2025-12-15", "valor": 2.51000 },
+        { "fecha": "2025-12-14", "valor": 2.50800 }
+    ],
+    "first_page_url": "http://localhost:8000/api/ufv?page=1",
+    "from": 1,
+    "last_page": 10,
+    "last_page_url": "http://localhost:8000/api/ufv?page=10",
+    "links": [ ... ],
+    "next_page_url": "http://localhost:8000/api/ufv?page=2",
+    "path": "http://localhost:8000/api/ufv",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 25,
+    "total": 300
+}
 ```
 
 ### 6.2 Obtener UFV por fecha

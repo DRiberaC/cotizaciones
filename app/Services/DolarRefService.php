@@ -4,12 +4,15 @@ namespace App\Services;
 
 use App\Models\DolarRef;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class DolarRefService
 {
-    public function index(): Collection
+    public function index(int $perPage = 25): LengthAwarePaginator
     {
-        return DolarRef::all();
+        return DolarRef::select('fecha', 'precio_compra', 'precio_venta')
+            ->orderBy('fecha', 'desc')
+            ->paginate($perPage);
     }
 
     public function store(array $data): DolarRef

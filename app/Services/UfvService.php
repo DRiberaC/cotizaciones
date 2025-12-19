@@ -4,12 +4,15 @@ namespace App\Services;
 
 use App\Models\Ufv;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UfvService
 {
-    public function index(): Collection
+    public function index(int $perPage = 25): LengthAwarePaginator
     {
-        return Ufv::all();
+        return Ufv::select('fecha', 'valor')
+            ->orderBy('fecha', 'desc')
+            ->paginate($perPage);
     }
 
     public function store(array $data): Ufv
