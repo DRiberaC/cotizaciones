@@ -117,8 +117,7 @@
             <h4>UFV</h4>
             <ul>
                 <li><code>GET /api/ufv</code></li>
-                <li><code>GET /api/ufv/{fecha}</code></li>
-                <li><code>GET /api/ufv/obtener-day/{fecha}</code></li>
+                <li><code>GET /api/ufv/{YYYY-MM-DD}</code></li>
                 <li><code>GET /api/ufv/obtener-month/{YYYY-MM}</code></li>
                 <li><code>GET /api/ufv/obtener-year/{YYYY}</code></li>
             </ul>
@@ -126,8 +125,7 @@
             <h4>Dólar</h4>
             <ul>
                 <li><code>GET /api/dolar</code></li>
-                <li><code>GET /api/dolar/{fecha}</code></li>
-                <li><code>GET /api/dolar/obtener-day/{fecha}</code></li>
+                <li><code>GET /api/dolar/{YYYY-MM-DD}</code></li>
                 <li><code>GET /api/dolar/obtener-month/{YYYY-MM}</code></li>
                 <li><code>GET /api/dolar/obtener-year/{YYYY}</code></li>
             </ul>
@@ -135,8 +133,7 @@
             <h4>Dólar Referencial</h4>
             <ul>
                 <li><code>GET /api/dolar-ref</code></li>
-                <li><code>GET /api/dolar-ref/{fecha}</code></li>
-                <li><code>GET /api/dolar-ref/obtener-day/{fecha}</code></li>
+                <li><code>GET /api/dolar-ref/{YYYY-MM-DD}</code></li>
                 <li><code>GET /api/dolar-ref/obtener-month/{YYYY-MM}</code></li>
                 <li><code>GET /api/dolar-ref/obtener-year/{YYYY}</code></li>
             </ul>

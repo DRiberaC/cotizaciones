@@ -102,7 +102,7 @@ GET /ufv
 ### 6.2 Obtener UFV por fecha
 
 ```http
-GET /ufv/{fecha}
+GET /ufv/{YYYY-MM-DD}
 ```
 
 Ejemplo:
@@ -155,7 +155,7 @@ POST /ufv
 ### 6.5 Actualizar UFV
 
 ```http
-PUT /ufv/{fecha}
+PUT /ufv/{YYYY-MM-DD}
 ```
 
 ```json
@@ -169,15 +169,7 @@ PUT /ufv/{fecha}
 ### 6.6 Eliminar UFV
 
 ```http
-DELETE /ufv/{fecha}
-```
-
----
-
-### 6.7 Obtener UFVs por día
-
-```http
-GET /ufv/obtener-day/{fecha}
+DELETE /ufv/{YYYY-MM-DD}
 ```
 
 ---
@@ -210,12 +202,11 @@ Endpoints equivalentes a UFV:
 
 ```text
 GET    /dolar
-GET    /dolar/{fecha}
+GET    /dolar/{YYYY-MM-DD}
 POST   /dolar
-PUT    /dolar/{fecha}
-DELETE /dolar/{fecha}
+PUT    /dolar/{YYYY-MM-DD}
+DELETE /dolar/{YYYY-MM-DD}
 
-GET /dolar/obtener-day/{fecha}
 GET /dolar/obtener-month/{YYYY-MM}
 GET /dolar/obtener-year/{YYYY}
 ```
@@ -238,12 +229,11 @@ Endpoints:
 
 ```text
 GET    /dolar-ref
-GET    /dolar-ref/{fecha}
+GET    /dolar-ref/{YYYY-MM-DD}
 POST   /dolar-ref
-PUT    /dolar-ref/{fecha}
-DELETE /dolar-ref/{fecha}
+PUT    /dolar-ref/{YYYY-MM-DD}
+DELETE /dolar-ref/{YYYY-MM-DD}
 
-GET /dolar-ref/obtener-day/{fecha}
 GET /dolar-ref/obtener-month/{YYYY-MM}
 GET /dolar-ref/obtener-year/{YYYY}
 ```

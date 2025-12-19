@@ -31,11 +31,6 @@ class UfvController extends Controller implements HasMiddleware
         return response()->json($this->ufvService->index());
     }
 
-    public function getByDay($fecha): JsonResponse
-    {
-        return response()->json($this->ufvService->getByDay($fecha));
-    }
-
     public function getByMonth($yearMonth): JsonResponse
     {
         return response()->json($this->ufvService->getByMonth($yearMonth));

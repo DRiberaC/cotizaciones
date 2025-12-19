@@ -28,11 +28,6 @@ class DolarService
         return Dolar::whereIn('fecha', array_column($data, 'fecha'))->get();
     }
 
-    public function getByDay(string $fecha): Collection
-    {
-        return Dolar::where('fecha', $fecha)->get();
-    }
-
     public function getByMonth(string $yearMonth): Collection
     {
         [$year, $month] = explode('-', $yearMonth);
