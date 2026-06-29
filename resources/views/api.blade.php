@@ -90,6 +90,94 @@
     <main>
 
         <section>
+            <h2>Cotizaciones de Hoy</h2>
+            @if($todayUfv || $todayDolar)
+                <p>Fecha de cotización mostrada: 
+                    <strong>{{ $todayUfv ? $todayUfv->fecha : ($todayDolar ? $todayDolar->fecha : '') }}</strong>
+                </p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    @if($todayUfv)
+                        <div style="flex: 1; min-width: 200px; border: 1px solid #e5e7eb; border-radius: 6px; padding: 1rem; background-color: #f8fafc;">
+                            <h3 style="margin-top: 0; font-size: 1.1rem; color: #111827;">Unidad de Fomento de Vivienda (UFV)</h3>
+                            <span style="font-size: 1.5rem; font-weight: bold; color: #1d4ed8;">{{ $todayUfv->valor }}</span>
+                        </div>
+                    @endif
+                    @if($todayDolar)
+                        <div style="flex: 1; min-width: 200px; border: 1px solid #e5e7eb; border-radius: 6px; padding: 1rem; background-color: #f8fafc;">
+                            <h3 style="margin-top: 0; font-size: 1.1rem; color: #111827;">Dólar Oficial</h3>
+                            <div style="display: flex; gap: 1.5rem;">
+                                <div>
+                                    <span style="font-size: 0.85rem; color: #6b7280; display: block;">Compra</span>
+                                    <span style="font-size: 1.5rem; font-weight: bold; color: #1f2937;">{{ $todayDolar->precio_compra }}</span>
+                                </div>
+                                <div style="border-left: 1px solid #e5e7eb; padding-left: 1.5rem;">
+                                    <span style="font-size: 0.85rem; color: #6b7280; display: block;">Venta</span>
+                                    <span style="font-size: 1.5rem; font-weight: bold; color: #1f2937;">{{ $todayDolar->precio_venta }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @else
+                <p>No hay cotizaciones registradas actualmente.</p>
+            @endif
+        </section>
+
+        <section>
+            <h2>Información Histórica</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-top: 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; color: #111827;">Historial UFV (Últimos 10 días)</h3>
+                    @if($historicalUfvs->isNotEmpty())
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid #e5e7eb; color: #4b5563;">
+                                    <th style="padding: 0.5rem 0;">Fecha</th>
+                                    <th style="padding: 0.5rem 0; text-align: right;">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($historicalUfvs as $ufv)
+                                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                                        <td style="padding: 0.5rem 0;">{{ $ufv->fecha }}</td>
+                                        <td style="padding: 0.5rem 0; text-align: right; font-family: monospace; font-weight: 500; color: #111827;">{{ $ufv->valor }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <p>No hay datos de UFV registrados.</p>
+                    @endif
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-top: 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; color: #111827;">Historial Dólar (Últimos 10 días)</h3>
+                    @if($historicalDolars->isNotEmpty())
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid #e5e7eb; color: #4b5563;">
+                                    <th style="padding: 0.5rem 0;">Fecha</th>
+                                    <th style="padding: 0.5rem 0; text-align: right;">Compra</th>
+                                    <th style="padding: 0.5rem 0; text-align: right;">Venta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($historicalDolars as $dolar)
+                                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                                        <td style="padding: 0.5rem 0;">{{ $dolar->fecha }}</td>
+                                        <td style="padding: 0.5rem 0; text-align: right; font-family: monospace; font-weight: 500; color: #111827;">{{ $dolar->precio_compra }}</td>
+                                        <td style="padding: 0.5rem 0; text-align: right; font-family: monospace; font-weight: 500; color: #111827;">{{ $dolar->precio_venta }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <p>No hay datos de Dólar registrados.</p>
+                    @endif
+                </div>
+            </div>
+        </section>
+
+        <section>
             <h2>Descripción</h2>
             <p>
                 Esta API proporciona acceso REST a indicadores económicos diarios,
