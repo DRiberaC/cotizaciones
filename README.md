@@ -208,13 +208,13 @@ DELETE /ufv/{YYYY-MM-DD}
 ### 6.8 Obtener UFVs por mes
 
 ```http
-GET /ufv/obtener-month/{YYYY-MM}
+GET /ufv/get-month/{YYYY-MM}
 ```
 
 Ejemplo:
 
 ```http
-GET /ufv/obtener-month/2025-12
+GET /ufv/get-month/2025-12
 ```
 
 ---
@@ -222,7 +222,7 @@ GET /ufv/obtener-month/2025-12
 ### 6.9 Obtener UFVs por año
 
 ```http
-GET /ufv/obtener-year/{YYYY}
+GET /ufv/get-year/{YYYY}
 ```
 
 ---
@@ -238,8 +238,8 @@ POST   /dolar
 PUT    /dolar/{YYYY-MM-DD}
 DELETE /dolar/{YYYY-MM-DD}
 
-GET /dolar/obtener-month/{YYYY-MM}
-GET /dolar/obtener-year/{YYYY}
+GET /dolar/get-month/{YYYY-MM}
+GET /dolar/get-year/{YYYY}
 ```
 
 ### Estructura de datos
@@ -265,8 +265,8 @@ POST   /dolar-ref
 PUT    /dolar-ref/{YYYY-MM-DD}
 DELETE /dolar-ref/{YYYY-MM-DD}
 
-GET /dolar-ref/obtener-month/{YYYY-MM}
-GET /dolar-ref/obtener-year/{YYYY}
+GET /dolar-ref/get-month/{YYYY-MM}
+GET /dolar-ref/get-year/{YYYY}
 ```
 
 ---
@@ -298,7 +298,7 @@ Esto garantiza respuestas consistentes sin lanzar errores innecesarios.
 * La **fecha** es la clave principal lógica (`YYYY-MM-DD`)
 * Las respuestas son siempre **JSON**
 * Los timestamps se gestionan automáticamente
-* Inserciones masivas usan `insert()` por rendimiento
+* Inserciones masivas usan upsert() para actualizar en caso de conflicto por fecha
 
 ---
 

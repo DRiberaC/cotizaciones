@@ -58,13 +58,9 @@ X-API-KEY: {{apiKey}}
 ]
 
 ### Obtener Dólares por Mes (ej. Diciembre 2025)
-GET {{baseUrl}}/dolar/obtener/2025-12
+GET {{baseUrl}}/dolar/get-month/2025-12
 Accept: application/json
 
 ### Obtener Dólares por Año (ej. 2025)
-GET {{baseUrl}}/dolar/obtener-year/2025
-Accept: application/json
-
-### Obtener Dólares por día (ej. 2025-12-10)
-GET {{baseUrl}}/dolar/obtener-day/2025-12-10
+GET {{baseUrl}}/dolar/get-year/2025
 Accept: application/json

@@ -58,13 +58,9 @@ X-API-KEY: {{apiKey}}
 ]
 
 ### Obtener Dólares Referenciales por Mes (ej. Diciembre 2025)
-GET {{baseUrl}}/dolar-ref/obtener/2025-12
+GET {{baseUrl}}/dolar-ref/get-month/2025-12
 Accept: application/json
 
 ### Obtener Dólares Referenciales por Año (ej. 2025)
-GET {{baseUrl}}/dolar-ref/obtener-year/2025
-Accept: application/json
-
-### Obtener Dólares Referenciales por día (ej. 2025-12-10)
-GET {{baseUrl}}/dolar-ref/obtener-day/2025-12-10
+GET {{baseUrl}}/dolar-ref/get-year/2025
 Accept: application/json
