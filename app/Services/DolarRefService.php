@@ -17,7 +17,7 @@ class DolarRefService
 
     public function store(array $data): DolarRef
     {
-        return DolarRef::create($data);
+        return DolarRef::updateOrCreate(['fecha' => $data['fecha']], $data);
     }
 
     public function storeMany(array $data): Collection
@@ -27,7 +27,7 @@ class DolarRefService
             $item['created_at'] = $now;
             $item['updated_at'] = $now;
         }
-        DolarRef::insert($data);
+        DolarRef::upsert($data, ['fecha'], ['precio_compra', 'precio_venta', 'updated_at']);
         return DolarRef::whereIn('fecha', array_column($data, 'fecha'))->get();
     }
 

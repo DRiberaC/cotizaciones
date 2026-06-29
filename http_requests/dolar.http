@@ -1,4 +1,5 @@
 @baseUrl = http://localhost:8000/api
+@apiKey = secreto123
 
 ### Listar todos los Dólares
 GET {{baseUrl}}/dolar
@@ -8,7 +9,7 @@ Accept: application/json
 POST {{baseUrl}}/dolar
 Content-Type: application/json
 Accept: application/json
-X-API-KEY: secreto123
+X-API-KEY: {{apiKey}}
 
 {
     "fecha": "2025-12-10",
@@ -24,7 +25,7 @@ Accept: application/json
 PUT {{baseUrl}}/dolar/2025-12-10
 Content-Type: application/json
 Accept: application/json
-X-API-KEY: secreto123
+X-API-KEY: {{apiKey}}
 
 {
     "fecha": "2025-12-10",
@@ -35,13 +36,13 @@ X-API-KEY: secreto123
 ### Eliminar un Dólar
 DELETE {{baseUrl}}/dolar/2025-12-10
 Accept: application/json
-X-API-KEY: secreto123
+X-API-KEY: {{apiKey}}
 
 ### Crear múltiples Dólares
 POST {{baseUrl}}/dolar
 Content-Type: application/json
 Accept: application/json
-X-API-KEY: secreto123
+X-API-KEY: {{apiKey}}
 
 [
     {

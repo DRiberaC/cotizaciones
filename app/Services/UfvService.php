@@ -17,7 +17,7 @@ class UfvService
 
     public function store(array $data): Ufv
     {
-        return Ufv::create($data);
+        return Ufv::updateOrCreate(['fecha' => $data['fecha']], $data);
     }
 
     public function storeMany(array $data): Collection
@@ -27,7 +27,7 @@ class UfvService
             $item['created_at'] = $now;
             $item['updated_at'] = $now;
         }
-        Ufv::insert($data);
+        Ufv::upsert($data, ['fecha'], ['valor', 'updated_at']);
         return Ufv::whereIn('fecha', array_column($data, 'fecha'))->get();
     }
 

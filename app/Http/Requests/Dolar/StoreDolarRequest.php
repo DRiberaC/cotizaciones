@@ -25,14 +25,14 @@ class StoreDolarRequest extends FormRequest
         // Check if input is a sequential array (list of objects)
         if (is_array($data) && array_is_list($data)) {
             return [
-                '*.fecha' => 'required|date|distinct|unique:dolars,fecha',
+                '*.fecha' => 'required|date|distinct',
                 '*.precio_compra' => 'required|numeric|min:0',
                 '*.precio_venta' => 'required|numeric|min:0',
             ];
         }
 
         return [
-            'fecha' => 'required|date|unique:dolars,fecha',
+            'fecha' => 'required|date',
             'precio_compra' => 'required|numeric|min:0',
             'precio_venta' => 'required|numeric|min:0',
         ];

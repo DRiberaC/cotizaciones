@@ -25,13 +25,13 @@ class StoreUfvRequest extends FormRequest
         // Check if input is a sequential array (list of objects)
         if (is_array($data) && array_is_list($data)) {
             return [
-                '*.fecha' => 'required|date|distinct|unique:ufvs,fecha',
+                '*.fecha' => 'required|date|distinct',
                 '*.valor' => 'required|numeric|min:0',
             ];
         }
 
         return [
-            'fecha' => 'required|date|unique:ufvs,fecha',
+            'fecha' => 'required|date',
             'valor' => 'required|numeric|min:0',
         ];
     }
