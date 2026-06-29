@@ -14,4 +14,8 @@ class Ufv extends Model
     protected $fillable = ['fecha', 'valor'];
     
     protected $hidden = ['created_at', 'updated_at'];
+
+    protected $casts = [
+        'valor' => 'decimal:5',
+    ];
 }

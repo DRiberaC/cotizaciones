@@ -21,6 +21,7 @@ test('ufv can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $response->assertStatus(201);
+    $response->assertJsonPath('valor', '2.50000');
     $this->assertDatabaseHas('ufvs', [
         'fecha' => '2026-06-01',
         'valor' => 2.50000
@@ -33,6 +34,7 @@ test('ufv can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $response2->assertStatus(201);
+    $response2->assertJsonPath('valor', '2.55000');
     $this->assertDatabaseHas('ufvs', [
         'fecha' => '2026-06-01',
         'valor' => 2.55000
@@ -52,6 +54,8 @@ test('ufv can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $responseMany->assertStatus(201);
+    $responseMany->assertJsonPath('0.valor', '2.60000');
+    $responseMany->assertJsonPath('1.valor', '2.70000');
     $this->assertDatabaseHas('ufvs', [
         'fecha' => '2026-06-01',
         'valor' => 2.60000
@@ -74,6 +78,8 @@ test('dolar can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $response->assertStatus(201);
+    $response->assertJsonPath('precio_compra', '6.86');
+    $response->assertJsonPath('precio_venta', '6.96');
     $this->assertDatabaseHas('dolars', [
         'fecha' => '2026-06-01',
         'precio_compra' => 6.86000,
@@ -88,6 +94,8 @@ test('dolar can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $response2->assertStatus(201);
+    $response2->assertJsonPath('precio_compra', '6.90');
+    $response2->assertJsonPath('precio_venta', '7.00');
     $this->assertDatabaseHas('dolars', [
         'fecha' => '2026-06-01',
         'precio_compra' => 6.90000,
@@ -110,6 +118,10 @@ test('dolar can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $responseMany->assertStatus(201);
+    $responseMany->assertJsonPath('0.precio_compra', '6.95');
+    $responseMany->assertJsonPath('0.precio_venta', '7.05');
+    $responseMany->assertJsonPath('1.precio_compra', '6.86');
+    $responseMany->assertJsonPath('1.precio_venta', '6.96');
     $this->assertDatabaseHas('dolars', [
         'fecha' => '2026-06-01',
         'precio_compra' => 6.95000,
@@ -134,6 +146,8 @@ test('dolar_ref can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $response->assertStatus(201);
+    $response->assertJsonPath('precio_compra', '6.86');
+    $response->assertJsonPath('precio_venta', '6.96');
     $this->assertDatabaseHas('dolar_refs', [
         'fecha' => '2026-06-01',
         'precio_compra' => 6.86000,
@@ -148,6 +162,8 @@ test('dolar_ref can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $response2->assertStatus(201);
+    $response2->assertJsonPath('precio_compra', '6.90');
+    $response2->assertJsonPath('precio_venta', '7.00');
     $this->assertDatabaseHas('dolar_refs', [
         'fecha' => '2026-06-01',
         'precio_compra' => 6.90000,
@@ -170,6 +186,10 @@ test('dolar_ref can be created or updated if exists (upsert)', function () {
     ], $header);
 
     $responseMany->assertStatus(201);
+    $responseMany->assertJsonPath('0.precio_compra', '6.95');
+    $responseMany->assertJsonPath('0.precio_venta', '7.05');
+    $responseMany->assertJsonPath('1.precio_compra', '6.86');
+    $responseMany->assertJsonPath('1.precio_venta', '6.96');
     $this->assertDatabaseHas('dolar_refs', [
         'fecha' => '2026-06-01',
         'precio_compra' => 6.95000,

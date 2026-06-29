@@ -15,4 +15,9 @@ class Dolar extends Model
     
     protected $hidden = ['created_at', 'updated_at'];
 
+    protected $casts = [
+        'precio_compra' => 'decimal:2',
+        'precio_venta' => 'decimal:2',
+    ];
+
 }
