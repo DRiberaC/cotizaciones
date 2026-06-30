@@ -31,7 +31,7 @@ class ScrapingBcb
     {
         $ufv = $this->fetchUfv();
         $dolar = $this->fetchDolar();
-        $dolarReferencial = $this->fetchDolarReferencial();
+        //$dolarReferencial = $this->fetchDolarReferencial();
 
         return [
             'ufv' => Ufv::updateOrCreate(
@@ -44,14 +44,14 @@ class ScrapingBcb
                     'precio_compra' => $dolar['precio_compra'],
                     'precio_venta' => $dolar['precio_venta'],
                 ]
-            ),
+            )/*,
             'dolar_referencial' => DolarRef::updateOrCreate(
                 ['fecha' => $dolarReferencial['fecha']],
                 [
                     'precio_compra' => $dolarReferencial['precio_compra'],
                     'precio_venta' => $dolarReferencial['precio_venta'],
                 ]
-            ),
+            ),*/
         ];
     }
 

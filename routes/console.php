@@ -9,5 +9,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('bcb:guardar-datos')
-    ->dailyAt('08:00')
+    ->dailyAt('05:00')
     ->timezone('America/La_Paz');

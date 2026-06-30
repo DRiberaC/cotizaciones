@@ -41,12 +41,7 @@ class GuardarDatosBcbCommand extends Command
                 'fecha' => $datos['dolar']->fecha,
                 'precio_compra' => $datos['dolar']->precio_compra,
                 'precio_venta' => $datos['dolar']->precio_venta,
-            ],
-            'dolar_referencial' => [
-                'fecha' => $datos['dolar_referencial']->fecha,
-                'precio_compra' => $datos['dolar_referencial']->precio_compra,
-                'precio_venta' => $datos['dolar_referencial']->precio_venta,
-            ],
+            ]
         ];
 
         Log::info('Datos del BCB guardados correctamente', $registro);
@@ -65,13 +60,7 @@ class GuardarDatosBcbCommand extends Command
                     $registro['dolar']['fecha'],
                     $registro['dolar']['precio_compra'],
                     $registro['dolar']['precio_venta'],
-                ],
-                [
-                    'Dólar referencial',
-                    $registro['dolar_referencial']['fecha'],
-                    $registro['dolar_referencial']['precio_compra'],
-                    $registro['dolar_referencial']['precio_venta'],
-                ],
+                ]
             ]
         );
 
